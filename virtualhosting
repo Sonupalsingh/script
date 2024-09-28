@@ -1,0 +1,13 @@
+<VirtualHost 192.168.0.201:80>
+ServerAdmin root@node.example.com
+DocumentRoot /var/www/sonu
+DirectoryIndex index.html
+ServerName   sonu.example.com
+ServerAlias  sonu.com
+CustomLog    "logs/sonu_access_log"  combined
+ErrorLog     "logs/sonu_error_log"
+</VirtualHost>
+
+<Directory  /var/www/sonu>
+require all granted
+</Directory>
