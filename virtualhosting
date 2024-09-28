@@ -11,3 +11,41 @@ ErrorLog     "logs/sonu_error_log"
 <Directory  /var/www/sonu>
 require all granted
 </Directory>
+
+
+
+
+
+
+
+
+<VirtualHost 192.168.0.201:80>
+ServerAdmin root@node.example.com
+DocumentRoot /var/www/sonu
+DirectoryIndex index.html
+ServerName   sonu.example.com
+ServerAlias  sonu.com
+Redirect permanent / https://sonu.example.com/
+
+
+SSLEngine on
+    SSLCertificateFile /etc/ssl/certs/mydomain.crt
+    SSLCertificateKeyFile /etc/ssl/private/mydomain.key
+    # If you have an intermediate certificate, add the following line
+    # SSLCertificateChainFile /etc/ssl/certs/intermediate.crt
+
+
+CustomLog    "logs/sonu_access_log"  combined
+ErrorLog     "logs/sonu_error_log"
+</VirtualHost>
+
+<Directory  /var/www/sonu>
+require all granted
+</Directory>
+
+
+
+
+
+
+
